@@ -10,6 +10,10 @@ import model.Corsi;
 /**
  * Session Bean implementation class CorsiEjb
  */
+
+//	java:jboss/exported/Corsi/IstruttoreEjb!ejb.IstruttoreEjbRemote
+
+
 @Stateless
 @LocalBean
 public class CorsiEjb implements CorsiEjbRemote, CorsiEjbLocal {

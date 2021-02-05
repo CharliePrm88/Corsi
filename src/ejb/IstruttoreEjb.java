@@ -9,6 +9,7 @@ import dao.IstruttoreDao;
 /**
  * Session Bean implementation class IstruttoreEjb
  */
+//	java:jboss/exported/Corsi/IstruttoreEjb!ejb.IstruttoreEjbRemote
 @Stateless
 @LocalBean
 public class IstruttoreEjb implements IstruttoreEjbRemote, IstruttoreEjbLocal {

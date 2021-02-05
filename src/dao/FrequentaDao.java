@@ -12,6 +12,9 @@ import javax.sql.DataSource;
 
 import model.Frequenta;
 
+
+//	java:jboss/exported/Corsi/FrequentaEjb!ejb.FrequentaEjbRemote
+
 public class FrequentaDao {
 	public void inserisciFrequenta(Frequenta f) {
 		try {
