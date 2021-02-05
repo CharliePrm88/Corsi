@@ -76,7 +76,7 @@ public class FrequentaDao {
 			DataSource ds = (DataSource) new InitialContext().lookup("java:/corsi");
 			Connection dbConnection = ds.getConnection();
 			java.sql.PreparedStatement cmd = null;
-			String query = "SELECT * FROM clienti WHERE id=?";
+			String query = "SELECT * FROM frequenta WHERE id=?";
 			cmd = dbConnection.prepareStatement(query);
 			cmd.setInt(1, id);
 			// execute update SQL statement
