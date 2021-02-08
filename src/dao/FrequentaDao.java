@@ -123,7 +123,7 @@ public class FrequentaDao {
 
 	public void cancellaFrequenta(Frequenta f) {
 		try {
-			DataSource ds = (DataSource) new InitialContext().lookup("java:/biblioteca");
+			DataSource ds = (DataSource) new InitialContext().lookup("java:/corsi");
 			Connection dbConnection = ds.getConnection();
 			java.sql.PreparedStatement cmd = null;
 			String updateTableSQL = "DELETE FROM frequenta WHERE id=?";
