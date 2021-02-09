@@ -2,8 +2,8 @@ package model;
 
 import java.sql.Date;
 
-public class Corsi {
-	
+public class Corsi{
+
 private int id;
 private String nome;
 private java.sql.Date data_inizio, data_fine;

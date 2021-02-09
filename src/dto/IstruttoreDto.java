@@ -1,9 +1,12 @@
-package model;
+package dto;
 
-public class Istruttore{
+import java.io.Serializable;
+
+public class IstruttoreDto implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private int matricola;
 	private String nome,cognome,codiceFiscale;
-	public Istruttore(int matricola, String nome, String cognome, String codiceFiscale) {
+	public IstruttoreDto(int matricola, String nome, String cognome, String codiceFiscale) {
 		super();
 		this.matricola = matricola;
 		this.nome = nome;
@@ -34,5 +37,4 @@ public class Istruttore{
 	public void setCodiceFiscale(String codiceFiscale) {
 		this.codiceFiscale = codiceFiscale;
 	}
-
 }

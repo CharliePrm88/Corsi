@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.ejb.Remote;
 
-import model.Corsi;
+import dto.CorsiDto;
 
 @Remote
 public interface CorsiEjbRemote {
-	public void inserisciCorsi(Corsi c);
-	public void aggiornaCorsi(Corsi c);
-	public void cancellaCorsi(Corsi c);
-	public Corsi ritornaCorsi(int id);
-	public List<Corsi> ritornaListaCorsi();
+	public void inserisciCorsi(CorsiDto c);
+	public void aggiornaCorsi(CorsiDto c);
+	public void cancellaCorsi(CorsiDto c);
+	public CorsiDto ritornaCorsi(int id);
+	public List<CorsiDto> ritornaListaCorsi();
 }

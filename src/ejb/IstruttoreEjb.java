@@ -1,10 +1,14 @@
 package ejb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+
 import model.Istruttore;
+import dto.IstruttoreDto;
+import dto.builder.Builder;
 import dao.IstruttoreDao;
 /**
  * Session Bean implementation class IstruttoreEjb
@@ -21,21 +25,31 @@ IstruttoreDao iD = new IstruttoreDao();
         // TODO Auto-generated constructor stub
     }
     
-    public void inserisciIstruttore(Istruttore i) {
-    	iD.inserisciIstruttore(i);
+    public void inserisciIstruttore(IstruttoreDto i) {
+    	Istruttore ist = Builder.DtoToIstruttore(i);
+    	iD.inserisciIstruttore(ist);
     }
     
-    public void cancellaIstruttore(Istruttore i) {
-    	iD.cancellaIstruttore(i);
+    public void cancellaIstruttore(IstruttoreDto i) {
+    	Istruttore ist = Builder.DtoToIstruttore(i);
+    	iD.cancellaIstruttore(ist);
     }
-    public void aggiornaIstruttore(Istruttore i) {
-    	iD.aggiornaIstruttore(i);
+    public void aggiornaIstruttore(IstruttoreDto i) {
+    	Istruttore ist = Builder.DtoToIstruttore(i);
+    	iD.aggiornaIstruttore(ist);
     }
-    public Istruttore ritornaIstruttore(int id) {
-    	return iD.ritornaIstruttore(id);    } 
+    public IstruttoreDto ritornaIstruttore(int id) {
+    	IstruttoreDto ist = Builder.IstruttoreToDto(iD.ritornaIstruttore(id));
+    	return ist;
+    	} 
     
-    public List<Istruttore> ritornaListaIstruttore(){
-    	return iD.ritornaListaIstruttore();
+    public List<IstruttoreDto> ritornaListaIstruttore(){
+    	List<Istruttore> l1 = iD.ritornaListaIstruttore();
+    	List<IstruttoreDto> cd = new ArrayList<IstruttoreDto>();
+    	for(Istruttore l : l1) {
+    		cd.add(Builder.IstruttoreToDto(l));
+    	}
+    	return cd;
     }
 
 }

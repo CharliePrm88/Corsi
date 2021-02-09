@@ -1,5 +1,6 @@
 package ejb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.LocalBean;
@@ -7,6 +8,8 @@ import javax.ejb.Stateless;
 
 import dao.CorsiDao;
 import model.Corsi;
+import dto.CorsiDto;
+import dto.builder.Builder;
 /**
  * Session Bean implementation class CorsiEjb
  */
@@ -25,22 +28,32 @@ CorsiDao cd = new CorsiDao();
         // TODO Auto-generated constructor stub
     }
     
-    public void inserisciCorsi(Corsi c) {
-    	cd.inserisciCorsi(c);
+    public void inserisciCorsi(CorsiDto c) {
+    	Corsi c1 = Builder.DtoToCorsi(c);
+    	cd.inserisciCorsi(c1);
     }
     
-    public void aggiornaCorsi(Corsi c) {
-    	cd.aggiornaCorsi(c);
+    public void aggiornaCorsi(CorsiDto c) {
+    	Corsi c1 = Builder.DtoToCorsi(c);
+    	cd.aggiornaCorsi(c1);
     }
-    public void cancellaCorsi(Corsi c) {
-    	cd.cancellaCorsi(c);
+    public void cancellaCorsi(CorsiDto c) {
+    	Corsi c1 = Builder.DtoToCorsi(c);
+    	cd.cancellaCorsi(c1);
     }
-    public Corsi ritornaCorsi(int id) {
-    	return cd.ritornaCorsi(id);
+    public CorsiDto ritornaCorsi(int id) {
+    	Corsi c = cd.ritornaCorsi(id);
+    	CorsiDto cd = Builder.CorsiToDto(c);
+    	return cd;
     }
     
-    public List<Corsi> ritornaListaCorsi(){
-    	return cd.ritornaListaCorsi();
+    public List<CorsiDto> ritornaListaCorsi(){
+    	List<Corsi> l1 = cd.ritornaListaCorsi();
+    	List<CorsiDto> cd = new ArrayList<CorsiDto>();
+    	for(Corsi l : l1) {
+    		cd.add(Builder.CorsiToDto(l));
+    	}
+    	return cd;
     }
 
 }

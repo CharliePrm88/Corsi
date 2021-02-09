@@ -1,9 +1,13 @@
-package model;
-public class Frequenta{
+package dto;
 
+import java.io.Serializable;
+
+public class FrequentaDto implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private int id,idCorso,idDipendente,idIstruttore;
 
-	public Frequenta(int id, int idCorso, int idDipendente, int idIstruttore) {
+	public FrequentaDto(int id, int idCorso, int idDipendente, int idIstruttore) {
 		super();
 		this.id = id;
 		this.idCorso = idCorso;
@@ -42,5 +46,4 @@ public class Frequenta{
 	public void setIdIstruttore(int idIstruttore) {
 		this.idIstruttore = idIstruttore;
 	}
-
 }

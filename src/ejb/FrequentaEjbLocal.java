@@ -4,13 +4,13 @@ import java.util.List;
 
 import javax.ejb.Local;
 
-import model.Frequenta;
+import dto.FrequentaDto;
 
 @Local
 public interface FrequentaEjbLocal {
-	public void inserisciFrequenta(Frequenta f);
-	public void cancellaFrequenta(Frequenta f);
-	public void aggiornaFrequenta(Frequenta f);
-	public Frequenta ritornaFrequenta(int id);
-	public List<Frequenta> ritornaListaFrequenta();
+	public void inserisciFrequenta(FrequentaDto f);
+	public void cancellaFrequenta(FrequentaDto f);
+	public void aggiornaFrequenta(FrequentaDto f);
+	public FrequentaDto ritornaFrequenta(int id);
+	public List<FrequentaDto> ritornaListaFrequenta();
 }

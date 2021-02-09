@@ -1,11 +1,14 @@
 package ejb;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import dao.FrequentaDao;
 import model.Frequenta;
+import dto.FrequentaDto;
+import dto.builder.Builder;
 /**
  * Session Bean implementation class FrequentaEjb
  */
@@ -20,20 +23,28 @@ FrequentaDao fd = new FrequentaDao();
         // TODO Auto-generated constructor stub
     }
 
-    public void inserisciFrequenta(Frequenta f) {
-    	fd.inserisciFrequenta(f);
+    public void inserisciFrequenta(FrequentaDto f) {
+    	Frequenta fdt = Builder.DtoToFrequenta(f);
+    	fd.inserisciFrequenta(fdt);
     }
-    public void cancellaFrequenta(Frequenta f) {
-    	fd.cancellaFrequenta(f);
+    public void cancellaFrequenta(FrequentaDto f) {
+    	Frequenta fdt = Builder.DtoToFrequenta(f);
+    	fd.cancellaFrequenta(fdt);
     }
-    public void aggiornaFrequenta(Frequenta f) {
-    	fd.aggiornaFrequenta(f);
+    public void aggiornaFrequenta(FrequentaDto f) {
+    	Frequenta fdt = Builder.DtoToFrequenta(f);
+    	fd.aggiornaFrequenta(fdt);
     }
-    public Frequenta ritornaFrequenta(int id) {
-    	return fd.ritornaFrequenta(id);
+    public FrequentaDto ritornaFrequenta(int id) {
+    	return Builder.FrequentaToDto(fd.ritornaFrequenta(id));
     }
-    public List<Frequenta> ritornaListaFrequenta(){
-    	return fd.ritornaListaFrequenta();
+    public List<FrequentaDto> ritornaListaFrequenta(){
+    	List<Frequenta> l1 = fd.ritornaListaFrequenta();
+    	List<FrequentaDto> cd = new ArrayList<FrequentaDto>();
+    	for(Frequenta l : l1) {
+    		cd.add(Builder.FrequentaToDto(l));
+    	}
+    	return cd;
     }
     
     

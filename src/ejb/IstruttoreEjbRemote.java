@@ -3,14 +3,13 @@ package ejb;
 import java.util.List;
 
 import javax.ejb.Remote;
-
-import model.Istruttore;
+import dto.IstruttoreDto;
 
 @Remote
 public interface IstruttoreEjbRemote {
-	public void inserisciIstruttore(Istruttore i);
-	public void cancellaIstruttore(Istruttore i);
-	public void aggiornaIstruttore(Istruttore i);
-	public Istruttore ritornaIstruttore(int id);
-	public List<Istruttore> ritornaListaIstruttore();
+	public void inserisciIstruttore(IstruttoreDto i);
+	public void cancellaIstruttore(IstruttoreDto i);
+	public void aggiornaIstruttore(IstruttoreDto i);
+	public IstruttoreDto ritornaIstruttore(int id);
+	public List<IstruttoreDto> ritornaListaIstruttore();
 }
