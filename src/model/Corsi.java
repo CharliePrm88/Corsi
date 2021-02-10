@@ -2,8 +2,12 @@ package model;
 
 import java.sql.Date;
 
-public class Corsi{
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Corsi{
+@Id
 private int id;
 private String nome;
 private java.sql.Date data_inizio, data_fine;
@@ -14,6 +18,8 @@ public Corsi(int id, String nome, Date data_inizio, Date data_fine) {
 	this.data_inizio = data_inizio;
 	this.data_fine = data_fine;
 }
+
+public Corsi() {}
 public int getId() {
 	return id;
 }

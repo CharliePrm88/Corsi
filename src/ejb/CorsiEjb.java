@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import dao.CorsiDao;
 import model.Corsi;
@@ -20,8 +22,11 @@ import dto.builder.Builder;
 @Stateless
 @LocalBean
 public class CorsiEjb implements CorsiEjbRemote, CorsiEjbLocal {
-CorsiDao cd = new CorsiDao();
-    /**
+	
+	@PersistenceContext(unitName="Hib4PU")
+	private EntityManager em;
+    
+	/**
      * Default constructor. 
      */
     public CorsiEjb() {
@@ -29,31 +34,36 @@ CorsiDao cd = new CorsiDao();
     }
     
     public void inserisciCorsi(CorsiDto c) {
+    	CorsiDao cd = new CorsiDao(em);
     	Corsi c1 = Builder.DtoToCorsi(c);
     	cd.inserisciCorsi(c1);
     }
     
     public void aggiornaCorsi(CorsiDto c) {
+    	CorsiDao cd = new CorsiDao(em);
     	Corsi c1 = Builder.DtoToCorsi(c);
     	cd.aggiornaCorsi(c1);
     }
     public void cancellaCorsi(CorsiDto c) {
+    	CorsiDao cd = new CorsiDao(em);
     	Corsi c1 = Builder.DtoToCorsi(c);
     	cd.cancellaCorsi(c1);
     }
     public CorsiDto ritornaCorsi(int id) {
+    	CorsiDao cd = new CorsiDao(em);
     	Corsi c = cd.ritornaCorsi(id);
-    	CorsiDto cd = Builder.CorsiToDto(c);
-    	return cd;
+    	CorsiDto cdt = Builder.CorsiToDto(c);
+    	return cdt;
     }
     
     public List<CorsiDto> ritornaListaCorsi(){
+    	CorsiDao cd = new CorsiDao(em);
     	List<Corsi> l1 = cd.ritornaListaCorsi();
-    	List<CorsiDto> cd = new ArrayList<CorsiDto>();
+    	List<CorsiDto> cdt = new ArrayList<CorsiDto>();
     	for(Corsi l : l1) {
-    		cd.add(Builder.CorsiToDto(l));
+    		cdt.add(Builder.CorsiToDto(l));
     	}
-    	return cd;
+    	return cdt;
     }
 
 }

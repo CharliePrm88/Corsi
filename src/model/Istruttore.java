@@ -1,6 +1,11 @@
 package model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Istruttore{
+	@Id
 	private int matricola;
 	private String nome,cognome,codiceFiscale;
 	public Istruttore(int matricola, String nome, String cognome, String codiceFiscale) {
@@ -10,6 +15,7 @@ public class Istruttore{
 		this.cognome = cognome;
 		this.codiceFiscale = codiceFiscale;
 	}
+	public Istruttore() {}
 	public int getMatricola() {
 		return matricola;
 	}

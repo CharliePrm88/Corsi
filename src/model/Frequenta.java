@@ -1,7 +1,13 @@
 package model;
-public class Frequenta{
 
-	private int id,idCorso,idDipendente,idIstruttore;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Frequenta{
+	@Id
+	private int id;
+	private int idCorso,idDipendente,idIstruttore;
 
 	public Frequenta(int id, int idCorso, int idDipendente, int idIstruttore) {
 		super();
