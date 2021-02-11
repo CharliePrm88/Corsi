@@ -1,14 +1,14 @@
 package dto;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 public class CorsiDto implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private int id;
 	private String nome;
-	private java.sql.Date data_inizio, data_fine;
+	private java.util.Date data_inizio, data_fine;
 	public CorsiDto(int id, String nome, Date data_inizio, Date data_fine) {
 		super();
 		this.id = id;
@@ -28,16 +28,16 @@ public class CorsiDto implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public java.sql.Date getData_inizio() {
+	public java.util.Date getData_inizio() {
 		return data_inizio;
 	}
-	public void setData_inizio(java.sql.Date data_inizio) {
+	public void setData_inizio(java.util.Date data_inizio) {
 		this.data_inizio = data_inizio;
 	}
-	public java.sql.Date getData_fine() {
+	public java.util.Date getData_fine() {
 		return data_fine;
 	}
-	public void setData_fine(java.sql.Date data_fine) {
+	public void setData_fine(java.util.Date data_fine) {
 		this.data_fine = data_fine;
 	}
 }
